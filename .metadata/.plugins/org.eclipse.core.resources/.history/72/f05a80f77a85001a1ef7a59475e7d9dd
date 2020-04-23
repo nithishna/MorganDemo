@@ -1,0 +1,18 @@
+package com.jm.model;
+
+public class ParkingLot {
+
+	private SlotManager twoWheelerSlotManager;
+	private SlotManager fourWheelerSlotManager;
+	private SlotManager heavyDutySlotManager;
+	
+	public ParkingLot(long twoWheelerLimit, long fourWheelerLimit, long heavyDutyLimit) {
+		this.twoWheelerSlotManager = new SlotManager(twoWheelerLimit);
+		this.fourWheelerSlotManager = new SlotManager(fourWheelerLimit);
+		this.fourWheelerSlotManager = new SlotManager(heavyDutyLimit);
+	}
+	
+	public void checkIn(Vehicle vehicle) {
+		
+	}
+}

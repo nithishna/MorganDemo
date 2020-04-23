@@ -1,0 +1,44 @@
+package com.jm.model;
+
+import java.util.Date;
+
+public class ParkingLot {
+
+	private SlotManager twoWheelerSlotManager;
+	private SlotManager fourWheelerSlotManager;
+	private SlotManager heavyDutySlotManager;
+
+	public ParkingLot(long twoWheelerLimit, long fourWheelerLimit, long heavyDutyLimit) {
+		this.twoWheelerSlotManager = new SlotManager(twoWheelerLimit);
+		this.fourWheelerSlotManager = new SlotManager(fourWheelerLimit);
+		this.fourWheelerSlotManager = new SlotManager(heavyDutyLimit);
+	}
+
+	public void checkIn(Vehicle vehicle) {
+		switch (vehicle.getType()) {
+			case TwoWheeler:
+				allocateSlot(this.twoWheelerSlotManager, vehicle);
+				break;
+			case FourWheeler:
+				allocateSlot(this.fourWheelerSlotManager, vehicle);
+				break;
+			case HeavyDuty:
+				allocateSlot(this.heavyDutySlotManager, vehicle);
+				break;
+		}
+	}
+	
+	private void allocateSlot(SlotManager manager, Vehicle vehicle) {
+		if(isSlotAvailable(manager)) {
+			vehicle.setInTime(new Date());
+			manager.allocateVehicleSlot(vehicle);
+		}
+		else {
+			System.out.println("No slot available");
+		}
+	}
+	
+	private boolean isSlotAvailable(SlotManager manager) {
+		return manager.isFree();
+	}
+}

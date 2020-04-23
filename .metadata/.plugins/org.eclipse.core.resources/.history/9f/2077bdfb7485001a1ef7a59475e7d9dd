@@ -1,0 +1,12 @@
+package com.jm.model;
+
+import java.util.Date;
+
+public class Vehicle {
+
+	private String vehicleNo;
+	private Date inTime;
+	private Date outTime;
+	private double amount;
+	
+}

@@ -1,0 +1,12 @@
+package com.jm.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class TwoWheelerSlotManager {
+
+	private long limit;
+	private List<Vehicle> slotAllocation = new ArrayList<>();
+	
+	
+}

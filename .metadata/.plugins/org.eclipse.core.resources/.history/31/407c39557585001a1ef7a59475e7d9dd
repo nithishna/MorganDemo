@@ -1,0 +1,37 @@
+package com.jm.model;
+
+import java.util.Date;
+
+public class Vehicle {
+
+
+	private String vehicleNo;
+	private Date inTime;
+	private Date outTime;
+	private double amount;
+	
+	public String getVehicleNo() {
+		return vehicleNo;
+	}
+	public void setVehicleNo(String vehicleNo) {
+		this.vehicleNo = vehicleNo;
+	}
+	public Date getInTime() {
+		return inTime;
+	}
+	public void setInTime(Date inTime) {
+		this.inTime = inTime;
+	}
+	public Date getOutTime() {
+		return outTime;
+	}
+	public void setOutTime(Date outTime) {
+		this.outTime = outTime;
+	}
+	public double getAmount() {
+		return amount;
+	}
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+}

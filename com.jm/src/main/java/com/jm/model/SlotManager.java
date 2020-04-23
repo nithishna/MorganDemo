@@ -1,0 +1,41 @@
+package com.jm.model;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class SlotManager {
+
+	private final long limit;
+	private List<Vehicle> slotAllocation = new ArrayList<>();
+	
+	/*private List<Floor> floors = new ArrayList<>();
+	Floor{
+		Map<Long, Vehicle> slotAllocationForFloor = new HashMap<>();
+	}*/
+	
+	public SlotManager(long limit) {
+		this.limit = limit;
+	}
+	
+	public boolean isFree() {
+		return this.limit > this.slotAllocation.size();
+	}
+	
+	public void allocateVehicleSlot(Vehicle vehicle) {
+		if(!slotAllocation.contains(vehicle)) {
+			this.slotAllocation.add(vehicle);
+			System.out.println("Parking lot allocated for vehicle no:"+vehicle.getVehicleNo());
+		}else {
+			System.out.println("Vehicle already got a slot");
+		}
+	}
+	
+	public Vehicle removeVehicle(Vehicle vehicle) {		
+		if(slotAllocation.contains(vehicle)) {
+			vehicle.setOutTime(new Date());
+			this.slotAllocation.remove(vehicle);
+		}
+		return vehicle;
+	}
+}
